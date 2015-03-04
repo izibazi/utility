@@ -1,0 +1,29 @@
+@mixin abs-tl-zero {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/*-----------------------
+  utility
+------------------------*/
+@mixin ellipsis($width) {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: $width;
+  white-space: nowrap;
+}
+
+/*-----------------------
+  font
+------------------------*/
+@mixin font-mincho {
+  font-family: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;
+}
+
+@mixin font-proxima-nova {
+  font-family: "proxima-nova",sans-serif;
+  letter-spacing: 2px;
+}

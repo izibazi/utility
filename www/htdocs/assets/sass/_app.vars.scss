@@ -1,0 +1,31 @@
+@import "lib/ptp-12";
+
+// width
+$min-width: 980px;
+$content-width: 980px;
+
+// fonts
+$basic-font-family: “Helvetica Neue”, Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+
+// colors
+$black: #232323;
+$white: #fff;
+$blue: #0090d5;
+$red: #e50011;
+$beige: #fcfcf8;
+$orange: #ff8e0a;
+$grey: #232323;
+$darkgrey: #8c8b89;
+$darkbrown: #afacb0;
+
+// line-height
+$line-height-short: 1.45;
+$line-height-normal: 1.6;
+$line-height-medium: 1.73;
+$line-height-loose: 2.1;
+
+// letter-spacing
+$letter-spacing-short: 1px;
+$letter-spacing-normal: 2px;
+$letter-spacing-medium: 3px;
+$letter-spacing-loose: 5px;
