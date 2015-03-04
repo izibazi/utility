@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	
+	<debug useTrace="1" useDebugger="0" />
+	<stage normalW="1024" normalH="768" maxW="" maxH="" minW="800" minH="500" />
+	
+	<!--	Sound	-->
+	<sound initVolume=".8">
+		<!-- embed sound -->
+		<item key="releaseSE" volume=".15" />
+		<item key="rollOverSE" volume=".2" />
+
+		<!--<item key="bgm" url="data/sound/bgm.mp3" volume=".25" streaming="true" bufferTime="1000" />-->
+	</sound>
+		
+	<!--	SWFAddress	-->
+	<swfAddress>
+		<scene key="index" folder="index" title=""/>
+		<scene key="content_root" folder="tvcm" title="  &amp; " swfPath="swf/.swf">
+			<scene key="content_1" folder="maguro" title="" externalSWFPath="swf/.swf" />
+		</scene>
+	</swfAddress>
+	
+	<!--	Key Value	-->
+	<keyValue>
+		<item key="link" target="_self">value</item>		
+	</keyValue>
+
+</config>
