@@ -11,7 +11,6 @@
 html, body {
 	width: 100%;
 	height: 100%;
-	//min-height: $app-min-height;
 	font-size: 12px;
 	line-height: 1.231;
 	color: $black;
@@ -27,116 +26,36 @@ html, body {
 a {
 	@include transition(0.1s);
 	text-decoration: none;
-	//color: $basic-anchor-color;
 	-webkit-tap-highlight-color: rgba(98, 120, 181, 0.8);
 	&:hover {
-		//color: $basic-anchor-color-over;
 		text-decoration: none;
 	}
-}
-#app {
-	width: 100%;
-	min-width: $min-width;
-	@include min-height(100%);
-	overflow: hidden;
-	position: relative;
-	background:{
-		image: url('../img/common/bg.jpg');
-		size: cover;
-		repeat: no-repeat;
-		attachment: fixed;
-	}
-}
-#contents {
-	position: relative;
-	// 適当
-	margin-top: 100px;
 }
 .content-inner {
 	width: $content-width;
 	margin: 0 auto;
 	position: relative;
 }
-/*-----------------------
-	g-header
-------------------------*/
+// app
+#app {
+	width: 100%;
+	min-width: $min-width;
+	@include min-height(100%);
+	overflow: hidden;
+	position: relative;
+}
+// header
 #g-header {
+}
+// main
+#main {
 	position: relative;
-	z-index: $zIndex-5--gHeader;
 }
-#g-header h1 {
-	margin: 15px 0 0 20px;
-}
-#g-header h2 {
-	margin: 18px 0 0 20px;
-}
-/* share */
-#g-header .share {
-	li {
-		position: absolute;
-		top: 20px;
-		&.facebook {
-			right: 8px;
-		}
-		&.twitter {
-			right: 50px;
-		}
-		&.g-plus {
-			right: -15px;
-		}
-	}
-}
-/*-----------------------
-	g-nav
-------------------------*/
-#g-nav {
-	width: 380px;
-	margin: 65px auto 0;
-	position: relative;
-	z-index: $zIndex-5--gNav;
-}
-#g-nav li {
-	margin-right: 15px;
-}
-#g-nav li.last {
-	margin-right: 0;
-}
-#g-nav li a {
-	display: block;
-	padding: 10px 30px 7px;
-	border: 1px solid $black;
-	@include border-radius(15px);
-	color: $black;
-	font-weight: bold;
-	letter-spacing: $letter-spacing-short;
-}
-#g-nav li a:hover {
-	background: $orange;
-	color: $white;
-	border: 1px solid $orange;
-}
-#g-nav li.active a {
-	background: $orange;
-	color: $white;
-	border: 1px solid $orange;
-}
-/*-----------------------
-	g-footer
-------------------------*/
+// footer
 #g-footer {
 	position: relative;
-	z-index: $zIndex-5--gFooter;
-	margin-top: 100px;
-	padding-bottom: 15px;
 }
-#g-footer .copyright {
-	font-size: 10px;
-	@include font-roboto-medium;
-	margin-left: 25px;
-}
-/*-----------------------
-	modal
-------------------------*/
+// modal
 .modal {
 	position: absolute;
 	top: 0;
@@ -168,13 +87,6 @@ a {
 	top: 0;
 	left: 0;
 	z-index: $zIndex-6--modalBg;
-	background: {
-		image: url('../img/top/bg_spot.png');
-		// color: rgba(0,0,0,0.9);
-		color: #000;
-		repeat: no-repeat;
-		position: center -200px;
-	}
 }
 .modal .wrap {
 	opacity: 0;

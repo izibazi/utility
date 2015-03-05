@@ -1,3 +1,6 @@
+/**
+ * npm install
+ */
 module.exports = function(grunt) {
 		var pkg = grunt.file.readJSON('package.json');
 		var RELATIVE_HTDOCS_DIR = '../htdocs/';

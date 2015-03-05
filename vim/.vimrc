@@ -1,4 +1,4 @@
-if version >= 704
+﻿if version >= 704
 	set regexpengine=1
 endif
 " 参考サイト
@@ -8,8 +8,8 @@ set nocompatible
 
 set helplang=ja,en
 " 文字コード設定 
-set enc=utf-8
-set fenc=utf-8
+set enc=utf-8 bomb
+set fenc=utf-8 bomb
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 
 "
@@ -44,6 +44,8 @@ set colorcolumn=80
 set tabstop=2
 set shiftwidth=2
 set autoindent
+" http://vim-jp.org/vimdoc-ja/indent.html
+set cino=(0
 
 "
 " 検索/置換の設定
@@ -260,7 +262,7 @@ filetype plugin on
 " set t_Co=256 
 " set background=dark
 let g:hybrid_use_iTerm_colors = 1
-autocmd ColorScheme * highlight Search ctermbg=53 guifg=Black guibg=#333333
+autocmd ColorScheme * highlight Search ctermbg=124 guifg=Black guibg=#333333
 " autocmd ColorScheme * highlight Comment ctermbg=0 guifg=Black guibg=#008800
 " let g:hybrid_use_Xresources = 1
 " let g:hybrid_use_iTerm_colors = 1
@@ -429,6 +431,12 @@ nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
 
+" vimgrep後に、QuickFixを表示する
 autocmd QuickFixCmdPost *grep* cwindow
-autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+" autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
+" ハイライトを消す
+noremap <silent> <ENTER> :noh<CR>
+
+" docstringは表示しない
+set completeopt-=preview

@@ -1,3 +1,6 @@
+/**
+ * エントリポイント
+ */
 Allblacks.readyBefore(this, function(lib) {
   var D = lib.D;
   D.enabled(false, false);
