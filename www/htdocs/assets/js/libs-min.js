@@ -1513,6 +1513,10 @@ jQuery.easing.jswing=jQuery.easing.swing,jQuery.extend(jQuery.easing,{def:"easeO
 				return canvas && canvas.getContext && canvas.getContext('2d');
 			},
 
+			hasTouchEvent: function() {
+				return ('ontouchstart' in window);
+			},
+
 			toString: function() {
 				var s = 'Allblacks.Environment (';
 				s += 'userAgent=' + userAgent_ + ', ';
