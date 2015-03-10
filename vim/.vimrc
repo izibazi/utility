@@ -105,6 +105,14 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'matchit.zip'
 NeoBundle 'surround.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'othree/html5.vim'
+let g:html5_event_handler_attributes_complete = 1
+let g:html5_rdfa_attributes_complete = 1
+let g:html5_microdata_attributes_complete = 1
+let g:html5_aria_attributes_complete = 1
+" Ruby向けにendを自動挿入してくれる
+NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tell-k/vim-browsereload-mac'
 " NeoBundle 'taichouchou2/vim-javascript'
 NeoBundle 'hail2u/vim-css3-syntax'
@@ -169,7 +177,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><C-t>  neocomplete#cancel_popup()
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
@@ -251,7 +259,7 @@ NeoBundle 'mattn/emmet-vim'
 " emmet展開ショートカット
 " let g:user_emmet_leader_key = '<c-e>'
 let g:user_emmet_expandabbr_key = '<c-e>'
-
+autocmd BufNewFile,BufRead *.html.erb set filetype=html
 filetype plugin indent on
 filetype plugin on
 
@@ -354,8 +362,9 @@ set statusline:%F%m%r%h%w\ [Col:%v]\ [Line:%l/%L\ (%p%%)]\ [Ascii:\%b]\ [Hex:\%0
 " hi StatusLine  	 term=reverse cterm=reverse ctermfg=white ctermbg=black
 
 " ctag
-autocmd FileType php set tags=$HOME/.vim/tags/codeigniter.tags
-autocmd FileType javascript set tags=$HOME/.vim/tags/javascript.tags
+" autocmd FileType php set tags=$HOME/.vim/tags/codeigniter.tags
+" autocmd FileType javascript set tags=$HOME/.vim/tags/javascript.tags
+" set tags+=./tags
 
 " 高速化?
 " http://superuser.com/questions/402448/vim-configuration-slow-in-terminal-iterm2-but-not-in-macvim
@@ -436,7 +445,10 @@ autocmd QuickFixCmdPost *grep* cwindow
 " autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
 " ハイライトを消す
-noremap <silent> <ENTER> :noh<CR>
+" noremap <silent> <ENTER> :noh<CR>
 
 " docstringは表示しない
 set completeopt-=preview
+
+" nnoremap <silent> bp :bprevious<CR>
+" nnoremap <silent> bn :bnext<CR>

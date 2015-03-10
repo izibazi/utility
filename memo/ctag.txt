@@ -1,0 +1,3 @@
+ctagsの設定メモ
+
+ctags -R
