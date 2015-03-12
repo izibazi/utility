@@ -5,36 +5,33 @@ PS2=" >>> "
 
 alias oc="open ."
 alias od="open ~/Desktop"
-alias afloat="open /Users/ishibashi/Library/Application\ Support/SIMBL/Plugins/Afloat.bundle"
 # vim 7.3 mac defaults
 # alias vi="/usr/bin/vim"
 # alias vim="/usr/bin/vim"
 # vim 7.4
 alias vi="/usr/local/bin/vim"
 alias vim="/usr/local/bin/vim"
+# MacVim
 # alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-# viでMacVimを開く.
 # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias top="/usr/bin/top -s 5 -o cpu"
-
+# cpu使用率順5件表示 topコマンド 
+# alias top="/usr/bin/top -s 5 -o cpu"
+# ctagの場所
 alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags"
+# ディスクトップ開く
 alias opend="cd ~/Desktop;open .;cd -"
 # CTRL+Rで履歴の検索が出来るのでコメントアウト
-alias h="history | grep $1"
+# alias h="history | grep $1"
 function proj() {
 	cd ~/Projects/$1/Repos/trunk/$1.shed.co.jp;
 }
-
-function hub() {
+function github() {
 	cd ~/Dropbox/GitHub;
 	if [ $# -eq 1 ]
 	then
-		cd $1;
+		cd $1 > /dev/null 2>&1;
+		echo "moved" $(pwd) 
 	fi
-}
-function reversid() {
-	cd  /Users/ishibashi/Projects/ReversiD/reversid\ \(trunk\)/unity/Assets/Script
-	vi;
 }
 function htdocs() {
 	cd ~/Projects/$1/Repos/trunk/$1.shed.co.jp/htdocs > /dev/null 2>&1
@@ -43,14 +40,44 @@ function htdocs() {
 	cd ~/Projects/$1/$1.shed.co.jp/htdocs;
 	fi
 }
-
+function gr() {
+	htdocs $1
+	if [ $? -ne 0 ]
+	then
+		return $?
+	fi
+	if [ $2 ]
+	then
+	 cd ../grunt_sp;
+	else
+	 cd ../grunt;
+	fi
+	t=$?
+	if [ $t -eq 0 ]
+	then
+	echo "moved" $(pwd)
+	fi
+	if [ $t -eq 0 ]
+	then
+	grunt;
+	fi
+}
+function reversi() {
+	cd  /Users/ishibashi/Projects/ReversiD/reversid\ \(trunk\)/unity/Assets/Script
+	vi;
+}
 eval "$(hub alias -s)"
 # アプリケーションを起動.
+alias afloat="open /Users/ishibashi/Library/Application\ Support/SIMBL/Plugins/Afloat.bundle"
+alias virtualbox="open -a /Applications/VirtualBox.app"
+alias charles="open -a Charles"
+alias xcode="open -a Xcode"
+alias unity="open -a Unity"
+alias versions="open -a Versions"
 alias preview="open -a preview"
 alias sourcetree="open -a SourceTree"
 alias slack="open -a /Applications/Slack.app"
 alias qt="open -a /Applications/QuickTime\ Player.app"
-alias virtualbox="open -a /Applications/VirtualBox.app"
 alias sketch="open -a /Users/ishibashi/Dropbox/Applications/Skitch.app"
 alias teamviewer="open -a TeamViewer"
 alias photoshop="open -a /Applications/Adobe\ Photoshop\ CC\ 2014/Adobe\ Photoshop\ CC\ 2014.app"
@@ -60,7 +87,6 @@ alias unity="open -a Unity"
 alias monodevelop="open -a /Applications/Unity/MonoDevelop.app"
 alias evernote="open -a /Applications/Evernote.app"
 alias safari="open -a safari"
-alias charles="open -a Charles"
 alias am="open -a Activity\ Monitor"
 alias eclipse="open -a eclipse"
 alias openmail="open -a mail"
@@ -68,14 +94,11 @@ alias firefox="open -a firefox"
 alias chrome="open -a 'Google Chrome'"
 alias safari="open -a Safari"
 alias itunes="open -a iTunes"
-alias xcode="open -a Xcode"
 alias console="open -a console"
 alias skype="open -a /Applications/Skype.app"
 alias colors="open -a Colors"
 alias filezilla="open -a FileZilla"
 alias sublime="open -a Sublime\ Text"
-alias unity="open -a Unity"
-alias versions="open -a Versions"
 alias note="open -a Evernote.app"
 alias appstore="open -a App\ Store"
 
@@ -99,5 +122,4 @@ export GREP_OPTIONS
 #export LSCOLORS=xbfxcxdxbxegedabagacad
 
 export NODE_PATH=/usr/local/lib/node_modules
-
 export PATH=$PATH:/Users/ishibashi/.nodebrew/current/bin 
