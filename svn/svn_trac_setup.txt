@@ -1,0 +1,18 @@
+Setup svn and trac on your server.
+# Setup svn.
+
+1.ssh sakura_example_svn
+2.svnadmin create /var/www/svn/test
+3.svn mkdir file:///var/www/svn/test/trunk file:///var/www/svn/test/trunk/test.example.co.jp file:///var/www/svn/test/trunk/test.example.co.jp/htdocs file:///var/www/svn/test/trunk/test.example.co.jp/files  file:///var/www/svn/test/tags file:///var/www/svn/test/branches -m "init repos"
+4.sudo chown -R apache:apache /var/www/svn/test
+
+# Setup trac.
+
+1.sudo trac-admin /var/www/trac/test initenv
+2.sudo chown -R apache:apache /var/www/trac/test
+
+3./var/www/trac/test/htdocs/logo.pngを配置
+4./var/www/trac/test/conf/trac.iniを編集
+[header_logo]
+link = /trac/test
+src = site/logo.png

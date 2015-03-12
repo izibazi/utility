@@ -1,0 +1,40 @@
+#!/bin/sh
+# POST-COMMIT HOOK
+# 参考
+# http://rakusai.org/svnhookgen/index_ja.html
+
+# プロジェクト名
+PROJECT_NAME='project_name'
+
+# チェックアウト用ディレクトリ
+CHECKOUT_DIR='/var/www/tmp/'$PROJECT_NAME
+# svnディレクトリ
+SVN_DIR='file:///var/www/svn/'$PROJECT_NAME'/trunk/'$PROJECT_NAME'.exmaple.com/htdocs'
+# アップロードするサーバ内のパス
+DST_DIR='/home/projects/'$PROJECT_NAME'/'$PROJECT_NAME'.shed.co.jp/htdocs'
+
+# ログイン情報
+HOST='xx.xxx.xxx.xxx'
+USER='ishibashi'
+PW='your password'
+PORT='21'
+
+#svn update
+if [ -e $CHECKOUT_DIR ];
+then
+ svn update $CHECKOUT_DIR
+else
+ mkdir $CHECKOUT_DIR
+ svn checkout $SVN_DIR $CHECKOUT_DIR
+fi
+
+#ftp mirror
+# -R: ファイルをアップロード
+# -X .svn/: .svnファイルはアップしない
+# --delete: 削除されたものはアップロード先でも削除する
+# --only-newer: 新しいファイルのみ
+# --no-perms: パーミションを無視
+echo "exit" | lftp -p $PORT -u $USER,$PW -e "mirror -R  -X .svn/ --only-newer --delete --no-perms "$CHECKOUT_DIR" "$DST_DIR $HOST
+
+# 特に削除する必要ない場合はコメントアウト
+rm -R $CHECKOUT_DIR
