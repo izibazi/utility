@@ -3,8 +3,6 @@ date
 PS1="\u:\w \! \$ "
 PS2=" >>> "
 
-alias oc="open ."
-alias od="open ~/Desktop"
 # vim 7.3 mac defaults
 # alias vi="/usr/bin/vim"
 # alias vim="/usr/bin/vim"
@@ -18,8 +16,8 @@ alias vim="/usr/local/bin/vim"
 # alias top="/usr/bin/top -s 5 -o cpu"
 # ctagの場所
 alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags"
-# ディスクトップ開く
-alias opend="cd ~/Desktop;open .;cd -"
+alias oc="open ."
+alias od="open ~/Desktop"
 # CTRL+Rで履歴の検索が出来るのでコメントアウト
 # alias h="history | grep $1"
 function proj() {
