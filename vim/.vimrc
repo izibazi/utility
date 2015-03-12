@@ -445,7 +445,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 " autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
 " ハイライトを消す
-" noremap <silent> <ENTER> :noh<CR>
+" noremap <silent> <ENTER><ENTER> :noh<CR>
 
 " docstringは表示しない
 set completeopt-=preview

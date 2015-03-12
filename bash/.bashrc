@@ -3,6 +3,9 @@ date
 PS1="\u:\w \! \$ "
 PS2=" >>> "
 
+alias oc="open ."
+alias od="open ~/Desktop"
+alias afloat="open /Users/ishibashi/Library/Application\ Support/SIMBL/Plugins/Afloat.bundle"
 # vim 7.3 mac defaults
 # alias vi="/usr/bin/vim"
 # alias vim="/usr/bin/vim"
@@ -19,13 +22,25 @@ alias opend="cd ~/Desktop;open .;cd -"
 # CTRL+Rで履歴の検索が出来るのでコメントアウト
 alias h="history | grep $1"
 function proj() {
-	cd ~/Projects/$1/Repos/trunk/$1.example.co.jp;
+	cd ~/Projects/$1/Repos/trunk/$1.shed.co.jp;
+}
+
+function hub() {
+	cd ~/Dropbox/GitHub;
+	if [ $# -eq 1 ]
+	then
+		cd $1;
+	fi
+}
+function reversid() {
+	cd  /Users/ishibashi/Projects/ReversiD/reversid\ \(trunk\)/unity/Assets/Script
+	vi;
 }
 function htdocs() {
-	cd ~/Projects/$1/Repos/trunk/$1.example.co.jp/htdocs > /dev/null 2>&1
+	cd ~/Projects/$1/Repos/trunk/$1.shed.co.jp/htdocs > /dev/null 2>&1
 	if [ $? -ne 0 ]
 	then
-	cd ~/Projects/$1/$1.example.co.jp/htdocs;
+	cd ~/Projects/$1/$1.shed.co.jp/htdocs;
 	fi
 }
 
@@ -82,3 +97,7 @@ export GREP_OPTIONS
 
 # lsの色
 #export LSCOLORS=xbfxcxdxbxegedabagacad
+
+export NODE_PATH=/usr/local/lib/node_modules
+
+export PATH=$PATH:/Users/ishibashi/.nodebrew/current/bin 
