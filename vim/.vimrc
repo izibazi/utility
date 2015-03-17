@@ -231,7 +231,8 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\.meta$']
 " vim起動時に自動的にNERDTreeも起動
-autocmd VimEnter * execute 'NERDTree'
+" autocmd VimEnter * execute 'NERDTree'
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " Comment
 NeoBundle 'tomtom/tcomment_vim'
 " Indent

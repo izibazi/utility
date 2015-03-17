@@ -1847,6 +1847,30 @@ jQuery.easing.jswing=jQuery.easing.swing,jQuery.extend(jQuery.easing,{def:"easeO
 		return ImageButton;
 	})();
 
+	var Event_ = Allblacks_.Event = {
+		click: function($target, callback, result)	{
+			(function() {
+				var moved = false;
+				$target.on({
+					'touchstart': function(e) {
+						moved = false;	
+					},
+					'touchend click touchmove': function(e) {
+						if (e.type == 'touchmove') {
+							moved = true;
+							return;	
+						}
+						if (!moved) {
+							callback.call(this, e);
+						}
+						moved = false;
+						return result ? true : false;
+					}
+				});
+			})();	
+		}
+	}
+
 	/**
 	 * Image Utility.
 	 */
