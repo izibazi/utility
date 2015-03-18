@@ -1,6 +1,7 @@
 ﻿if version >= 704
 	set regexpengine=1
 endif
+
 " 参考サイト
 " http://vimblog.hatenablog.com/entry/vimrc_set_recommended_options
 " .vimrcが存在するする時点でnocompatibleが成されているのと同じらしいが。
@@ -93,7 +94,9 @@ set noswapfile " ファイル編集中にスワップファイルを作らない
 " Vim初回起動時のみ実行
 if has('vim_starting')
  set runtimepath+=~/.vim/bundle/neobundle.vim
- call neobundle#rc(expand('~/.vim/bundle'))
+ call neobundle#begin(expand('~/.vim/bundle'))
+	 NeoBundleFetch 'Shougo/neobundle.vim'
+ call neobundle#end()
 endif 
 
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -127,7 +130,7 @@ NeoBundleLazy 'nosami/Omnisharp', {
 \ }
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'scrooloose/syntastic.git'
+" NeoBundle 'scrooloose/syntastic.git'
 " neocomplete
 " if neobundle#is_installed('neocomplete')
 	let g:neocomplete#enable_at_startup = 1
@@ -231,7 +234,7 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\.meta$']
 " vim起動時に自動的にNERDTreeも起動
-" autocmd VimEnter * execute 'NERDTree'
+""autocmd VimEnter * execute 'NERDTree'
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " Comment
 NeoBundle 'tomtom/tcomment_vim'
@@ -276,7 +279,7 @@ autocmd ColorScheme * highlight Search ctermbg=124 guifg=Black guibg=#333333
 " let g:hybrid_use_Xresources = 1
 " let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
-":"colorscheme ir_black
+" colorscheme ir_black
 " colorscheme molokai
 " colorscheme mustang 
 syntax on
@@ -323,31 +326,31 @@ nnoremap <C-G> 2<C-G>
 "
 " tablineの表示
 "
-set showtabline=2
-set tabline=%!MyTabLine()
-function MyTabLine()
-  let s = ''
-  for i in range(tabpagenr('$'))
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
-    endif
-    let s .= '%' . (i+1) . 'T' 
-    let s .= ' ' . (i+1) . (1==getwinvar(i+1,'&modified')?'[+]':'') . ' %{MyTabLabel(' . (i+1) . ')} '
-  endfor
-  let s .= '%#TabLineFill#%T'
-  if tabpagenr('$') > 1 
-    let s .= '%=%#TabLine#%999Xclose'
-  endif
-  return s
-endfunction
-
-function MyTabLabel(n)
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  return bufname(buflist[winnr - 1]) 
-endfunction
+" set showtabline=2
+" set tabline=%!MyTabLine()
+" function MyTabLine()
+"   let s = ''
+"   for i in range(tabpagenr('$'))
+"     if i + 1 == tabpagenr()
+"       let s .= '%#TabLineSel#'
+"     else
+"       let s .= '%#TabLine#'
+"     endif
+"     let s .= '%' . (i+1) . 'T' 
+"     let s .= ' ' . (i+1) . (1==getwinvar(i+1,'&modified')?'[+]':'') . ' %{MyTabLabel(' . (i+1) . ')} '
+"   endfor
+"   let s .= '%#TabLineFill#%T'
+"   if tabpagenr('$') > 1 
+"     let s .= '%=%#TabLine#%999Xclose'
+"   endif
+"   return s
+" endfunction
+"
+" function MyTabLabel(n)
+"   let buflist = tabpagebuflist(a:n)
+"   let winnr = tabpagewinnr(a:n)
+"   return bufname(buflist[winnr - 1]) 
+" endfunction
 
 hi TabLine  	 term=bold cterm=bold,underline ctermfg=60
 hi TabLineSel  term=reverse cterm=reverse ctermfg=white ctermbg=black
