@@ -315,7 +315,8 @@ map <C-N> :bnext<CR>
 map <C-P> :bprev<CR>
 
 " カーソル下単語(<cword>)でgrep
-nnoremap <F3> :grep <cword> ./*<CR>
+" nnoremap <F3> :grep <cword> ./*<CR>
+nnoremap <F3> :vim <cword> **/*<CR>
 
 " ファイルの詳細表示
 nnoremap <C-G> 2<C-G>
@@ -326,35 +327,35 @@ nnoremap <C-G> 2<C-G>
 "
 " tablineの表示
 "
-" set showtabline=2
-" set tabline=%!MyTabLine()
-" function MyTabLine()
-"   let s = ''
-"   for i in range(tabpagenr('$'))
-"     if i + 1 == tabpagenr()
-"       let s .= '%#TabLineSel#'
-"     else
-"       let s .= '%#TabLine#'
-"     endif
-"     let s .= '%' . (i+1) . 'T' 
-"     let s .= ' ' . (i+1) . (1==getwinvar(i+1,'&modified')?'[+]':'') . ' %{MyTabLabel(' . (i+1) . ')} '
-"   endfor
-"   let s .= '%#TabLineFill#%T'
-"   if tabpagenr('$') > 1 
-"     let s .= '%=%#TabLine#%999Xclose'
-"   endif
-"   return s
-" endfunction
-"
-" function MyTabLabel(n)
-"   let buflist = tabpagebuflist(a:n)
-"   let winnr = tabpagewinnr(a:n)
-"   return bufname(buflist[winnr - 1]) 
-" endfunction
+set showtabline=2
+set tabline=%!MyTabLine()
+function MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+    let s .= '%' . (i+1) . 'T' 
+    let s .= ' ' . (i+1) . (1==getwinvar(i+1,'&modified')?'[+]':'') . ' %{MyTabLabel(' . (i+1) . ')} '
+  endfor
+  let s .= '%#TabLineFill#%T'
+  if tabpagenr('$') > 1 
+    let s .= '%=%#TabLine#%999Xclose'
+  endif
+  return s
+endfunction
 
-hi TabLine  	 term=bold cterm=bold,underline ctermfg=60
+function MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return bufname(buflist[winnr - 1]) 
+endfunction
+
+hi TabLine  	 term=bold cterm=bold,underline ctermfg=58
 hi TabLineSel  term=reverse cterm=reverse ctermfg=white ctermbg=black
-hi TabLineFill term=reverse cterm=reverse ctermfg=233 ctermbg=black
+hi TabLineFill term=reverse cterm=reverse ctermfg=0 ctermbg=black
 
 "
 " ステータスライン
