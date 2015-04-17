@@ -20,7 +20,7 @@ alias oc="open ."
 alias od="open ~/Desktop"
 # CTRL+Rで履歴の検索が出来るのでコメントアウト
 # alias h="history | grep $1"
-function prj() {
+function p() {
 	cd ~/Projects/$1;
 }
 function github() {
@@ -122,6 +122,6 @@ export GREP_OPTIONS
 export NODE_PATH=/usr/local/lib/node_modules
 export PATH=$PATH:/Users/ishibashi/.nodebrew/current/bin 
 
-function git-root() {
+function gitroot() {
 	cd $(git rev-parse --show-toplevel)
 }
