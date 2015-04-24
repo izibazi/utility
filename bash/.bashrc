@@ -125,3 +125,5 @@ export PATH=$PATH:/Users/ishibashi/.nodebrew/current/bin
 function gitroot() {
 	cd $(git rev-parse --show-toplevel)
 }
+
+export BUNDLER_EDITOR=vim

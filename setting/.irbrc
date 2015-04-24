@@ -1,6 +1,4 @@
-﻿# irb
-
-IRB.conf[:IRB_NAME] = 'home_irb'
+﻿IRB.conf[:IRB_NAME] = 'home_irb'
 IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:ECHO] = true
 IRB.conf[:LOAD_MODULES] = ['pp']
