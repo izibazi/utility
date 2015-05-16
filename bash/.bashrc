@@ -127,3 +127,8 @@ function gitroot() {
 }
 
 export BUNDLER_EDITOR=vim
+export EDITOR=vim
+
+SDKROOT=$(xcrun --show-sdk-path -sdk macosx)
+alias swift='xcrun swift'
+alias swiftc='xcrun swiftc -sdk $SDKROOT'
