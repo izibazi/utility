@@ -109,6 +109,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'matchit.zip'
 NeoBundle 'surround.vim'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'othree/html5.vim'
 let g:html5_event_handler_attributes_complete = 1
 let g:html5_rdfa_attributes_complete = 1
