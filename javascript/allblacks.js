@@ -25,14 +25,14 @@
 	var inited_ = false;
 	var root_ = this;
 	var $window_ = $(window);
-	var Allblacks_ = root_.Allblacks = {};
+	var AB_ = root_.Allblacks = {};
 
 	var READY_BEFORE_JQUERY_EVENT_ = 'READY_BEFORE_JQUERY_EVENT';
 	var READY_JQUERY_EVENT_ = 'READY_JQUERY_EVENT';
 	var READY_AFTER_JQUERY_EVENT_ = 'READY_AFTER_JQUERY_EVENT';
 
 	//You should define Common Application Logic.It is user data.
-	Allblacks_.app = {};
+	AB_.app = {};
 
 	//jquery ready.
 	$(function() {
@@ -43,36 +43,40 @@
 		WindowResizer_.init();
 		WindowScroller_.init();
 		//Post jquery ready event.
-		NotificationCenter_.post(READY_BEFORE_JQUERY_EVENT_, [Allblacks_]);
-		NotificationCenter_.post(READY_JQUERY_EVENT_, [Allblacks_]);
-		NotificationCenter_.post(READY_AFTER_JQUERY_EVENT_, [Allblacks_]);
+		NotificationCenter_.post(READY_BEFORE_JQUERY_EVENT_, [AB_]);
+		NotificationCenter_.post(READY_JQUERY_EVENT_, [AB_]);
+		NotificationCenter_.post(READY_AFTER_JQUERY_EVENT_, [AB_]);
 		WindowResizer_.post();
 		WindowScroller_.post();
 	});
 
-	Allblacks_.ready = function(context, startCallback) {
+	AB_.ready = function(context, startCallback) {
 		NotificationCenter_.add(READY_JQUERY_EVENT_, context, startCallback);
 	};
 
-	Allblacks_.readyBefore = function(context, beforeCallback) {
+	AB_.readyBefore = function(context, beforeCallback) {
 		NotificationCenter_.add(READY_BEFORE_JQUERY_EVENT_, context, beforeCallback);
 	};
 
-	Allblacks_.readyAfter = function(context, afterCallback) {
+	AB_.readyAfter = function(context, afterCallback) {
 		NotificationCenter_.add(READY_AFTER_JQUERY_EVENT_, context, afterCallback);
 	};
 
-	var Constants_ = Allblacks_.Constants = Allblacks_.Consts = {
-		//date utility.
-		MINUTE: 60 * 1000, HOUR: 3600 * 1000, DAY: 86400 * 1000, WEEK: 604800 * 1000, MONTH: 2592000 * 1000, YEAR: 31536000 * 1000,
+	var Constants_ = AB_.Constants = AB_.Consts = {
+		MINUTE: 60 * 1000, 
+		HOUR: 3600 * 1000,
+		DAY: 86400 * 1000,
+		WEEK: 604800 * 1000,
+		MONTH: 2592000 * 1000,
+		YEAR: 31536000 * 1000,
 		APP_START_TIME: new Date().getTime()
 	};
 
 	/**
 	 * Console Utility.
 	 */
-	var D_ = Allblacks_.D = Allblacks_.Debug = (function() {
-		// private vars.
+	var D_ = AB_.D = AB_.Debug = (function() {
+		// Private vars.
 		var enabledConsole_ = typeof console != 'undefined' && typeof console.log != 'undefined';
 		var enabled_ = false;
 		var disableFunc_ = function() {};
@@ -151,7 +155,7 @@
 	 * Simply Event Dispatcher.
 	 * like iOS NSNotificationCenter Class.
 	 */
-	var NotificationCenter_ = Allblacks_.NotificationCenter = (function() {
+	var NotificationCenter_ = AB_.NotificationCenter = (function() {
 		//private vars
 		var observers_ = {};
 
@@ -266,7 +270,7 @@
 	/**
 	 * Window Resize Management.
 	 */
-	var WindowResizer_ = Allblacks_.WindowResizer = (function() {
+	var WindowResizer_ = AB_.WindowResizer = (function() {
 		//private vars
 		var w_ = 0;
 		var h_ = 0;
@@ -285,7 +289,7 @@
 				var scope = this;
 				w_ = $window_.width();
 				h_ = $window_.height();
-				rect_ = new Allblacks_.Geom.Rect(0, 0, w_, h_);
+				rect_ = new AB_.Geom.Rect(0, 0, w_, h_);
 
 				$window_.resize(function() {
 					if(!enabled_) {
@@ -352,7 +356,7 @@
 	/**
 	 * Window Scroll Management.
 	 */
-	var WindowScroller_ = Allblacks_.WindowScroller = (function(){
+	var WindowScroller_ = AB_.WindowScroller = (function(){
 		//private vars
 		var inited_ = false;
 		var now_ = 0;
@@ -540,7 +544,7 @@
 	/**
 	 * Image Loader Class.
 	 */
-	var ImageLoader_ = Allblacks_.ImageLoader = (function() {
+	var ImageLoader_ = AB_.ImageLoader = (function() {
 
 		/**
 		 * Define ImageLoader Class.
@@ -772,7 +776,7 @@
 	 *
 	 * Not support IE6.
 	 */
-	var ModalWindow_ = Allblacks_.ModalWindow = (function() {
+	var ModalWindow_ = AB_.ModalWindow = (function() {
 		//private vars.
 		var $wrapper_ = null;
 		var $overlayLayer_ = null;
@@ -799,9 +803,9 @@
 			var overlayStyle = 'style="';
 			if (overlayColor !== false) {
 				overlayStyle += 'background: ' + overlayColor + '; ';
-				if (Allblacks_.Env.ieVersionsBelow(8)) {
+				if (AB_.Env.ieVersionsBelow(8)) {
 					overlayStyle += 'filter: alpha(opacity=' + opacity + ');';
-				} else if(Allblacks_.Env.isIE8()) {
+				} else if(AB_.Env.isIE8()) {
 					overlayStyle += "-ms-filter: 'alpha(opacity=" + opacity + ")';";
 				} else {
 					overlayStyle += 'opacity: ' + overlayOpacity + '; ';
@@ -953,7 +957,7 @@
 	/**
 	* Infomation of Browser, OS and etc.
 	*/
-	var Environment_ = Allblacks_.Environment = Allblacks_.Env = (function() {
+	var Environment_ = AB_.Environment = AB_.Env = (function() {
 		//private vars
 		var userAgent_ = window.navigator.userAgent.toLowerCase(),
 				opera_ = userAgent_.indexOf('opera') >= 0,
@@ -1401,7 +1405,7 @@
 	/**
 	 * Image Utility.
 	 */
-	var ImageUtil_ = Allblacks_.ImageUtil = {
+	var ImageUtil_ = AB_.ImageUtil = {
 		/**
 		 * If you use .png For IE7, IE8,
 		 * you call this method.
@@ -1411,7 +1415,7 @@
 		 * you should change parent element's opacity of img.
 		 */
 		convertPNG: function($imgs) {
-			if(Allblacks_.Env.isIE8() || Allblacks_.Env.isIE7()) {
+			if(AB_.Env.isIE8() || AB_.Env.isIE7()) {
 				$imgs.each(function() {
 					if(!$(this) || !$(this).attr) {
 						return false;
@@ -1437,7 +1441,7 @@
 	/**
 	 * Geometory namespace.
 	 */
-	var Geom_ = Allblacks_.Geom = {};
+	var Geom_ = AB_.Geom = {};
 
 	/**
 	 * Define Point class.

@@ -131,6 +131,9 @@ NeoBundleLazy 'nosami/Omnisharp', {
 \ }
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
+NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
+
 " NeoBundle 'scrooloose/syntastic.git'
 " neocomplete
 " if neobundle#is_installed('neocomplete')
