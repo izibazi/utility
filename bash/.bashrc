@@ -132,3 +132,7 @@ export EDITOR=vim
 SDKROOT=$(xcrun --show-sdk-path -sdk macosx)
 alias swift='xcrun swift'
 alias swiftc='xcrun swiftc -sdk $SDKROOT'
+
+alias be='bundle exec'
+alias b='bundle exec'
+alias adb-monitor='/Applications/AndroidSDK/adt-bundle-mac-x86_64-20140702/sdk/tools/monitor'
