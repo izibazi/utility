@@ -461,3 +461,13 @@ set completeopt-=preview
 
 " nnoremap <silent> bp :bprevious<CR>
 " nnoremap <silent> bn :bnext<CR>
+
+" Coffeescript
+NeoBundle 'kchmck/vim-coffee-script'
+" js BDD
+NeoBundle 'claco/jasmine.vim'
+" indentに色をつける
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
+

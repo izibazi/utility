@@ -136,3 +136,5 @@ alias swiftc='xcrun swiftc -sdk $SDKROOT'
 alias be='bundle exec'
 alias b='bundle exec'
 alias adb-monitor='/Applications/AndroidSDK/adt-bundle-mac-x86_64-20140702/sdk/tools/monitor'
+
+export GEM_PATH=:/Users/ishibashi/.gem/ruby/2.0.0:/Library/Ruby/Gems/2.0.0:/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/gems/2.0.0
