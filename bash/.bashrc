@@ -8,7 +8,7 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 # export PS1="\u:\w \!$(__git_ps1 [%s]) \$ "
 # export PS1='\u\:\w[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
-export PS1='\w\033[00m\]\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
+export PS1='\u:\w\033[00m\]\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
 PS2=" >>> "
 
 # vim 7.3 mac defaults
