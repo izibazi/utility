@@ -1,6 +1,14 @@
 date
 
-PS1="\u:\w \! \$ "
+# PS1="\u:\w \! \$ "
+# source ~/.git-prompt.sh
+# source ~/.git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
+# export PS1="\u:\w \!$(__git_ps1 [%s]) \$ "
+# export PS1='\u\:\w[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
+export PS1='\w\033[00m\]\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
 PS2=" >>> "
 
 # vim 7.3 mac defaults
@@ -122,10 +130,6 @@ export GREP_OPTIONS
 export NODE_PATH=/usr/local/lib/node_modules
 export PATH=$PATH:/Users/ishibashi/.nodebrew/current/bin 
 
-function gitroot() {
-	cd $(git rev-parse --show-toplevel)
-}
-
 export BUNDLER_EDITOR=vim
 export EDITOR=vim
 
@@ -139,3 +143,11 @@ alias adb-monitor='/Applications/AndroidSDK/adt-bundle-mac-x86_64-20140702/sdk/t
 alias xamarin='/Applications/Xamarin\ Studio.app'
 
 export GEM_PATH=:/Users/ishibashi/.gem/ruby/2.0.0:/Library/Ruby/Gems/2.0.0:/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/gems/2.0.0
+
+# Gitの設定
+function gitroot() {
+	cd $(git rev-parse --show-toplevel)
+}
+alias g="git"
+alias glog="git log --oneline -20"
+
