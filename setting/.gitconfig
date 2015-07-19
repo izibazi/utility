@@ -1,0 +1,31 @@
+[user]
+	name = izibazi
+	email = izibazi@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+	excludesfile = /Users/ishibashi/.gitignore_global
+	autocrlf = input
+[push]
+	default = matching
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[help]
+	autocorrect = 1
+[alias]
+	a = add
+	b = branch
+	cam = commit -am
+	cm = commit -m
+	co = checkout
+	cob = checkout -b
+	me = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s' --author=izibazi
+	l = log --oneline --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	s = status
+	st = status
+	
