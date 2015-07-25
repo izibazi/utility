@@ -1,12 +1,9 @@
 date
 
 # PS1="\u:\w \! \$ "
-# source ~/.git-prompt.sh
-# source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
-# export PS1="\u:\w \!$(__git_ps1 [%s]) \$ "
 # export PS1='\u\:\w[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
 export PS1='\u:\w\033[00m\]\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
 PS2=" >>> "
@@ -149,5 +146,4 @@ function gitroot() {
 	cd $(git rev-parse --show-toplevel)
 }
 alias g="git"
-alias glog="git log --oneline -20"
-
+alias reversid="cd ~/Projects/Reversid/git/reversid"

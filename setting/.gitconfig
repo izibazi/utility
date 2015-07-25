@@ -7,6 +7,7 @@
 	editor = vim
 	excludesfile = /Users/ishibashi/.gitignore_global
 	autocrlf = input
+	pager = less
 [push]
 	default = matching
 [difftool "sourcetree"]
@@ -20,12 +21,16 @@
 [alias]
 	a = add
 	b = branch
-	cam = commit -am
-	cm = commit -m
-	co = checkout
-	cob = checkout -b
+	bd = branch -d
+	co = commit
+	com = commit -m
+	coam = commit -am
+	ch = checkout
+	chb = checkout -b
 	me = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s' --author=izibazi
 	l = log --oneline --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-	s = status
+	s = status -s
 	st = status
-	
+	today = log --oneline --graph --decorate --since='24 hours ago'
+[commit]
+	template = /Users/ishibashi/.gitmessage
