@@ -10,12 +10,10 @@
 	pager = less
 [push]
 	default = matching
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[mergetool "p4merge"]
+	path = p4merge
+	keepTemporaries = false
+	trustExitCode = false
 [help]
 	autocorrect = 1
 [alias]
@@ -27,6 +25,7 @@
 	coam = commit -am
 	ch = checkout
 	chb = checkout -b
+	m = merge
 	me = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s' --author=izibazi
 	l = log --oneline --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	s = status -s
@@ -34,3 +33,5 @@
 	today = log --oneline --graph --decorate --since='24 hours ago'
 [commit]
 	template = /Users/ishibashi/.gitmessage
+[merge]
+	tool = vimdiff

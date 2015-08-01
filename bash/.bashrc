@@ -142,8 +142,37 @@ alias xamarin='/Applications/Xamarin\ Studio.app'
 export GEM_PATH=:/Users/ishibashi/.gem/ruby/2.0.0:/Library/Ruby/Gems/2.0.0:/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/gems/2.0.0
 
 # Gitの設定
-function gitroot() {
+alias g="git"
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add -A'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
+alias gd='git diff'
+alias gdh='git diff HEAD'
+alias gdd='git diff develop'
+alias gi='git init'
+alias glog='git log'
+alias glg='git log --grape --oneline --decarate --all'
+alias gl='git l'
+alias glme='git me'
+alias gm='git merge --no-ff'
+alias gp='git pull'
+alias gs='git status'
+alias gss='git status -s'
+
+function groot() {
 	cd $(git rev-parse --show-toplevel)
 }
-alias g="git"
+
+function glf() {
+	git log --all --grep="$1";
+}
+
+# Projects
 alias reversid="cd ~/Projects/Reversid/git/reversid"
