@@ -71,7 +71,8 @@ function reversi() {
 }
 eval "$(hub alias -s)"
 # アプリケーションを起動.
-alias afloat="open /Users/ishibashi/Library/Application\ Support/SIMBL/Plugins/Afloat.bundle"
+alias excel="open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app"
+alias word="open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Word.app"
 alias virtualbox="open -a /Applications/VirtualBox.app"
 alias charles="open -a Charles"
 alias xcode="open -a Xcode"
@@ -177,3 +178,4 @@ function glf() {
 
 # Projects
 alias reversid="cd ~/Projects/Reversid/git/reversid"
+alias classmethod="cd ~/Dropbox/Classmethod"
