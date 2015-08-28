@@ -95,44 +95,73 @@ set noswapfile " ファイル編集中にスワップファイルを作らない
 if has('vim_starting')
  set runtimepath+=~/.vim/bundle/neobundle.vim
  call neobundle#begin(expand('~/.vim/bundle'))
-	 NeoBundleFetch 'Shougo/neobundle.vim'
+	NeoBundleFetch 'Shougo/neobundle.vim'
+	NeoBundleFetch 'Shougo/neobundle.vim'
+	NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'Shougo/neomru.vim'
+	NeoBundle has('lua') ? 'Shougo/neocomplete.vim' : 'Shouge/neocompletecache.vom'
+	NeoBundle 'Shougo/neosnippet.vim'
+	NeoBundle 'Shougo/neosnippet-snippets'
+	NeoBundle 'scrooloose/nerdtree'
+	NeoBundle 'matchit.zip'
+	NeoBundle 'surround.vim'
+	NeoBundle 'tpope/vim-rails'
+	NeoBundle 'tpope/vim-surround'
+	NeoBundle 'othree/html5.vim'
+	" Ruby向けにendを自動挿入してくれる
+	NeoBundle 'tpope/vim-endwise'
+	NeoBundle 'tell-k/vim-browsereload-mac'
+	" NeoBundle 'taichouchou2/vim-javascript'
+	NeoBundle 'hail2u/vim-css3-syntax'
+	NeoBundle 'szw/vim-tags'
+	NeoBundleLazy 'nosami/Omnisharp', {
+	\   'autoload': {'filetypes': ['cs']},
+	\   'build': {
+	\     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
+	\     'mac': 'xbuild server/OmniSharp.sln',
+	\     'unix': 'xbuild server/OmniSharp.sln',
+	\   }
+	\ }
+	NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
+	NeoBundle 'tpope/vim-dispatch'
+	NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
+	NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
+	NeoBundle 'tomtom/tcomment_vim'
+	" Indent
+	" インデントに色を付けて見やすくする
+	" NeoBundle 'nathanaelkane/vim-indent-guides'
+	" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+	" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=16
+	" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=0
+	" let g:indent_guides_enable_on_vim_startup=1
+	" let g:indent_guides_guide_size=1
+
+	" Color schemes
+	NeoBundle 'altercation/vim-colors-solarized'
+	NeoBundle 'croaker/mustang-vim'
+	NeoBundle 'nanotech/jellybeans.vim'
+	NeoBundle 'w0ng/vim-hybrid'
+	NeoBundle 'tomasr/molokai'
+
+	" JSON
+	NeoBundle 'JSON.vim'
+	au! BufRead,BufNewFile *.json set filetype=json
+	"au! BufRead,BufNewFile *.txt set filetype=json
+
+	NeoBundle 'mattn/emmet-vim'
+	" Coffeescript
+	NeoBundle 'kchmck/vim-coffee-script'
+	" js BDD
+	NeoBundle 'claco/jasmine.vim'
+	" indentに色をつける
+	NeoBundle 'nathanaelkane/vim-indent-guides'
  call neobundle#end()
 endif 
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle has('lua') ? 'Shougo/neocomplete.vim' : 'Shouge/neocompletecache.vom'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'matchit.zip'
-NeoBundle 'surround.vim'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'othree/html5.vim'
 let g:html5_event_handler_attributes_complete = 1
 let g:html5_rdfa_attributes_complete = 1
 let g:html5_microdata_attributes_complete = 1
 let g:html5_aria_attributes_complete = 1
-" Ruby向けにendを自動挿入してくれる
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tell-k/vim-browsereload-mac'
-" NeoBundle 'taichouchou2/vim-javascript'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'szw/vim-tags'
-NeoBundleLazy 'nosami/Omnisharp', {
-\   'autoload': {'filetypes': ['cs']},
-\   'build': {
-\     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
-\     'mac': 'xbuild server/OmniSharp.sln',
-\     'unix': 'xbuild server/OmniSharp.sln',
-\   }
-\ }
-NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
-NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
 
 " NeoBundle 'scrooloose/syntastic.git'
 " neocomplete
@@ -241,29 +270,7 @@ let NERDTreeIgnore = ['\.meta$']
 ""autocmd VimEnter * execute 'NERDTree'
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " Comment
-NeoBundle 'tomtom/tcomment_vim'
-" Indent
-" インデントに色を付けて見やすくする
-" NeoBundle 'nathanaelkane/vim-indent-guides'
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=16
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=0
-" let g:indent_guides_enable_on_vim_startup=1
-" let g:indent_guides_guide_size=1
 
-" Color schemes
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'croaker/mustang-vim'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'tomasr/molokai'
-
-" JSON
-NeoBundle 'JSON.vim'
-au! BufRead,BufNewFile *.json set filetype=json
-"au! BufRead,BufNewFile *.txt set filetype=json
-
-NeoBundle 'mattn/emmet-vim'
 " emmet展開ショートカット
 " let g:user_emmet_leader_key = '<c-e>'
 let g:user_emmet_expandabbr_key = '<c-e>'
@@ -462,12 +469,6 @@ set completeopt-=preview
 " nnoremap <silent> bp :bprevious<CR>
 " nnoremap <silent> bn :bnext<CR>
 
-" Coffeescript
-NeoBundle 'kchmck/vim-coffee-script'
-" js BDD
-NeoBundle 'claco/jasmine.vim'
-" indentに色をつける
-NeoBundle 'nathanaelkane/vim-indent-guides'
 
 au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 
