@@ -86,7 +86,7 @@ alias sketch="open -a /Applications/Skitch.app"
 alias teamviewer="open -a TeamViewer"
 alias photoshop="open -a /Applications/Adobe\ Photoshop\ CC\ 2014/Adobe\ Photoshop\ CC\ 2014.app"
 alias dw="open -a /Applications/Adobe\ Dreamweaver\ CC\ 2014/Adobe\ Dreamweaver\ CC\ 2014.app"
-alias flash="open -a /Applications/Adobe\ Flash\ CC\ 2014/Adobe\ Flash\ CC\ 2014.app"
+alias flash="open -a /Applications/Adobe\ Flash\ CC\ 2015/Adobe\ Flash\ CC\ 2015.app"
 alias unity="open -a Unity"
 alias monodevelop="open -a /Applications/Unity/MonoDevelop.app"
 alias evernote="open -a /Applications/Evernote.app"
@@ -102,7 +102,7 @@ alias console="open -a console"
 alias skype="open -a /Applications/Skype.app"
 alias colors="open -a Colors"
 alias filezilla="open -a FileZilla"
-alias sublime="open -a Sublime\ Text"
+alias sublime="open -a Sublime\ Text\ 2"
 alias note="open -a Evernote.app"
 alias appstore="open -a App\ Store"
 
@@ -179,3 +179,6 @@ function glf() {
 # Projects
 alias reversid="cd ~/Projects/Reversid/git/reversid"
 alias classmethod="cd ~/Dropbox/Classmethod"
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
