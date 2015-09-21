@@ -71,6 +71,7 @@ function reversi() {
 }
 eval "$(hub alias -s)"
 # アプリケーションを起動.
+alias as="open -a /Applications/Android\ Studio.app"
 alias excel="open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app"
 alias word="open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Word.app"
 alias virtualbox="open -a /Applications/VirtualBox.app"
