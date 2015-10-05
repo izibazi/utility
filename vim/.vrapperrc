@@ -1,2 +1,10 @@
 ﻿set expandtab
+set showmatch " 対応する括弧を強調
+set tabstop=2
 set shiftwidth=2
+set autoindent
+set hlsearch " 検索文字列をハイライト
+set incsearch " インクリメンタルサーチ
+
+" ノーマルコードに移動
+inoremap jj <Esc>

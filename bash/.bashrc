@@ -23,6 +23,7 @@ alias vim="/usr/local/bin/vim"
 alias ctags="/usr/local/Cellar/ctags/5.8/bin/ctags"
 alias oc="open ."
 alias od="open ~/Desktop"
+alias ds="cd ~/Desktop"
 # CTRL+Rで履歴の検索が出来るのでコメントアウト
 # alias h="history | grep $1"
 function p() {
