@@ -1,5 +1,3 @@
-date
-
 # PS1="\u:\w \! \$ "
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
@@ -65,10 +63,6 @@ function gr() {
 	then
 	grunt;
 	fi
-}
-function reversi() {
-	cd  /Users/ishibashi/Projects/ReversiD/reversid\ \(trunk\)/unity/Assets/Script
-	vi;
 }
 eval "$(hub alias -s)"
 # アプリケーションを起動.
@@ -163,10 +157,12 @@ alias gd='git diff'
 alias gdh='git diff HEAD'
 alias gdd='git diff develop'
 alias gi='git init'
-alias glog='git log'
-alias glone='git log --oneline'
+alias glog='git log --oneline'
+alias glog1='git log --oneline -10'
 alias glg='git log --grape --oneline --decarate --all'
 alias gl='git l'
+alias gl5='git l -5'
+alias gl10='git l -10'
 alias glme='git me'
 alias gm='git merge --no-ff'
 alias gp='git pull'
@@ -182,8 +178,8 @@ function glf() {
 }
 
 # Projects
-alias reversid="cd ~/Projects/Reversid/git/reversid"
-alias classmethod="cd ~/Dropbox/Classmethod"
+alias reversi="cd ~/Projects/Reversid/git/reversid"
+alias reversi-assets="cd ~/Projects/Reversid/git/assets"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 

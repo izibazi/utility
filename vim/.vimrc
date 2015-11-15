@@ -471,4 +471,4 @@ set completeopt-=preview
 
 
 au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
-
+hi LineNr ctermbg=235 ctermfg=244
