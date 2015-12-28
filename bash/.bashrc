@@ -67,10 +67,12 @@ function gr() {
 eval "$(hub alias -s)"
 # アプリケーションを起動.
 alias md="open -a /Applications/MacDown.app"
+alias geny="open -a /Applications/Genymotion.app"
 alias as="open -a /Applications/Android\ Studio.app"
 alias excel="open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app"
 alias word="open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Word.app"
 alias virtualbox="open -a /Applications/VirtualBox.app"
+alias vb="open -a /Applications/VirtualBox.app"
 alias charles="open -a Charles"
 alias xcode="open -a Xcode"
 alias unity="open -a Unity"
@@ -154,6 +156,7 @@ alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gdh='git diff HEAD'
 alias gdd='git diff develop'
 alias gi='git init'
@@ -180,6 +183,13 @@ function glf() {
 # Projects
 alias reversi="cd ~/Projects/Reversid/git/reversid"
 alias reversi-assets="cd ~/Projects/Reversid/git/assets"
+alias reversi-html="cd ~/Projects/Reversid/git/reversid_html"
+alias start-reversi-server="/Users/ishibashi/Projects/ReversiD/git/assets/commands/start-server.command"
+alias stop-reversi-server="/Users/ishibashi/Projects/ReversiD/git/assets/commands/stop-server.command"
+alias build-reversi-assetsjson="/Users/ishibashi/Projects/ReversiD/git/assets/commands/build-assetsjson.command"
+alias validate-reversi-assetsjson="/Users/ishibashi/Projects/ReversiD/git/assets/commands/validate-assetsjson.command"
+
+alias rails4="cd ~/Desktop/rails4"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
